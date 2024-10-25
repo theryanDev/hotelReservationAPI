@@ -7,18 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-
-@Entity(name = "payments")
+@Embeddable
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private BigDecimal amount;
     private String status;
-    @OneToOne(mappedBy = "payment", cascade = CascadeType.ALL)
-    private Reservation reservation;
 }
